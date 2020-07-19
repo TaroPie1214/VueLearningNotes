@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="mask">
+        <div class="center">
+            <h2 class="title">
+                <img :src="imgArr[index]" alt="">
+            </h2>
+            <a href="#" v-show="index!=0" @click="prev" class="left"> <!--href="#"默认指当前页面-->
+                上一张
+            </a>
+            <a href="#" v-show="index<imgArr.length-1" @click="next" class="right">
+                下一张
+            </a>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#mask",
+            data:{
+                imgArr:[
+                    "./img/1.jpg",
+                    "./img/2.jpg",
+                    "./img/3.jpg"
+                ],
+                index:0
+            },
+            methods:{
+                prev:function(){
+                    this.index--;
+                },
+                next:function(){
+                    this.index++;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

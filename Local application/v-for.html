@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="添加数据" @click="add">
+        <input type="button" value="移除数据" @click="remove">
+
+        <ul> <!--ul为无序列表-->
+            <li v-for="(item,index) in arr" :title="item"> <!--li定义列表项目-->>
+                {{ index+1 }}.地点：{{ item }}
+            </li>
+            <h2 v-for="(item,index) in objArr" :title="item.name">
+                {{ item.name }}
+            </h2>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                arr:["北京","上海","广州","深圳"],
+                objArr:[
+                    {name:"jack"},
+                    {name:"rose"}
+                ]
+            },
+            methods:{
+                add:function(){
+                    this.objArr.push({ name:"motherfucker" });
+                },
+                remove:function(){
+                    this.objArr.shift(); //移除最左边的元素
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
