@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="切换显示" @click="toggleIsShow">
+        <p v-if="isShow">哈哈哈</p>
+        <p v-show="isShow">哈哈哈</p>
+        <h2 v-if="temperature>=35">真jb热</h2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                isShow:false,
+                temperature:20
+            },
+            methods:{
+                toggleIsShow:function(){
+                    this.isShow = !this.isShow;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
+
+//v-if操纵dom元素，true时元素存在于dom树中，flase时从dom树中移除
+//v-show操纵样式(display)
+//v-if用于不频繁切换的元素,v-show用于频繁切换的元素
